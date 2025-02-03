@@ -29,8 +29,15 @@ const Sidebar = () => {
         </Link>
       </div>
       
-      <div className="flex-1" style={{ marginTop: '30vh', marginLeft: '20%' }}>
-        <div className="space-y-8 pl-4">
+      <div className="flex-1">
+        <div 
+          className="space-y-8"
+          style={{ 
+            marginTop: '30vh', 
+            marginLeft: '20%',
+            transform: 'translateX(0)' // This ensures the content moves with the margin
+          }}
+        >
           {menuItems.map((item) => (
             <Link
               key={item.label}
