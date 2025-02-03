@@ -52,6 +52,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        shop: {
+          DEFAULT: "#FCF7F5",
+        }
       },
       keyframes: {
         "fade-in": {

@@ -31,7 +31,7 @@ const Index = () => {
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-black/40" /> {/* Darker overlay */}
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         
         {/* Hero content */}
@@ -43,16 +43,16 @@ const Index = () => {
         >
           <motion.button
             onClick={() => navigate('/shop')}
-            className="text-8xl md:text-9xl font-extralight tracking-[0.2em] text-center 
+            className="text-[46px] font-sans text-[#FCF7F5] tracking-[0.2em] text-center 
                      hover:text-gray-300 transition-colors duration-300 
                      relative after:content-[''] after:absolute after:bottom-0 
-                     after:left-0 after:w-full after:h-[1px] after:bg-white 
+                     after:left-0 after:w-full after:h-[1px] after:bg-[#FCF7F5] 
                      after:scale-x-0 hover:after:scale-x-100 after:transition-transform 
-                     after:duration-300"
+                     after:duration-300 uppercase"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            SHOP
+            Shop
           </motion.button>
           <p className="text-lg md:text-xl tracking-widest opacity-80">
             URBAN STREETWEAR COLLECTION
