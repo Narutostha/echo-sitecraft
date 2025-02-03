@@ -23,7 +23,7 @@ const Sidebar = () => {
         <img
           src="/lovable-uploads/24889cd0-3147-4b61-a0e3-e6256f595c0d.png"
           alt="Logo"
-          className="w-12 h-12 object-contain hover:opacity-80 transition-opacity"
+          className="w-12 h-12 object-contain hover:opacity-80 transition-opacity absolute -top-32 left-8"
         />
       </Link>
       
