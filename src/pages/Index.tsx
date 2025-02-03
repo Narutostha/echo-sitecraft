@@ -1,12 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { motion } from "framer-motion";
+import Sidebar from "../components/Sidebar";
+import Cart from "../components/Cart";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-primary relative overflow-hidden">
+      <Sidebar />
+      <Cart />
+      
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative h-screen"
+      >
+        <div className="absolute inset-0">
+          <img
+            src="/lovable-uploads/24889cd0-3147-4b61-a0e3-e6256f595c0d.png"
+            alt="Hero"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
+        
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <h1 className="text-white text-8xl font-light tracking-wider">
+            SHOP
+          </h1>
+        </motion.div>
+      </motion.main>
     </div>
   );
 };
