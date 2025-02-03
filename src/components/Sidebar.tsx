@@ -35,8 +35,8 @@ const Sidebar = () => {
         transition={{ duration: 0.5 }}
         className="fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col md:translate-x-0"
       >
-        <div className="flex-none">
-          <Link to="/" className="block mb-8 mt-4">
+        <div className="flex-none w-full flex justify-center">
+          <Link to="/" className="block mb-8">
             <img
               src="/lovable-uploads/24889cd0-3147-4b61-a0e3-e6256f595c0d.png"
               alt="Logo"
