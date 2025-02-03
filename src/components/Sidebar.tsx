@@ -29,12 +29,12 @@ const Sidebar = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ 
           x: 0, 
-          opacity: 1,
-          translateX: isOpen ? "0%" : "-100%"
+          opacity: 1
         }}
         transition={{ duration: 0.5 }}
-        className={`fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col transform 
-                   md:translate-x-0 ${!isOpen && 'translate-x-[-100%] md:translate-x-0'}`}
+        className={`fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col
+                   ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+                   md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
         <div className="flex-none w-full flex justify-center">
           <Link to="/" className="block mb-8">
