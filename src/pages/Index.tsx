@@ -14,13 +14,20 @@ const Index = () => {
         transition={{ duration: 0.8 }}
         className="relative h-screen"
       >
-        {/* Full-screen background image */}
+        {/* Full-screen video background */}
         <div className="absolute inset-0">
-          <img
-            src="/lovable-uploads/24889cd0-3147-4b61-a0e3-e6256f595c0d.png"
-            alt="Hero"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source
+              src="https://cdn.shopify.com/videos/c/o/v/8faa6f1698b144f5aa774c523376f52a.mov"
+              type="video/mp4"
+            />
+          </video>
           <div className="absolute inset-0 bg-black/40" /> {/* Darker overlay */}
         </div>
         
