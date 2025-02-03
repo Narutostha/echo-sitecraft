@@ -32,7 +32,10 @@ const Sidebar = () => {
           <Link
             key={item.label}
             to={item.path}
-            className="block text-[#FBF7F5] hover:text-yellow-400 transition-colors duration-200 text-[16px] font-['HalvarBreit'] tracking-[0.3em] uppercase"
+            className="block text-[#FBF7F5] text-left no-underline uppercase text-base font-bold 
+                     leading-[1.475rem] tracking-[0.0094rem] cursor-pointer 
+                     transition-colors duration-250 ease-in-out
+                     hover:text-yellow-400"
           >
             {item.label}
           </Link>
