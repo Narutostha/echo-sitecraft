@@ -20,7 +20,7 @@ const Sidebar = () => {
       {/* Mobile Menu Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 p-2 md:hidden"
+        className="fixed top-4 left-4 z-50 md:hidden"
       >
         <Menu className="h-6 w-6 text-[#FBF7F5]" />
       </button>
@@ -33,7 +33,8 @@ const Sidebar = () => {
           translateX: isOpen ? "0%" : "-100%"
         }}
         transition={{ duration: 0.5 }}
-        className="fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col md:translate-x-0"
+        className={`fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col transform 
+                   md:translate-x-0 ${!isOpen && 'translate-x-[-100%] md:translate-x-0'}`}
       >
         <div className="flex-none w-full flex justify-center">
           <Link to="/" className="block mb-8">
