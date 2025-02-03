@@ -17,29 +17,29 @@ const Sidebar = () => {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed left-0 top-0 h-full w-64 bg-white/90 backdrop-blur-sm p-8 z-50"
+      className="fixed left-0 top-0 h-full w-64 bg-white/95 backdrop-blur-md p-8 z-50 shadow-lg"
     >
       <Link to="/" className="block mb-16">
         <img
           src="/lovable-uploads/24889cd0-3147-4b61-a0e3-e6256f595c0d.png"
           alt="Logo"
-          className="w-12 h-12 object-contain"
+          className="w-12 h-12 object-contain hover:opacity-80 transition-opacity"
         />
       </Link>
       
-      <div className="space-y-6">
+      <div className="space-y-8">
         {menuItems.map((item) => (
           <Link
             key={item.label}
             to={item.path}
-            className="block text-gray-800 hover:text-black transition-colors duration-200 text-sm tracking-wider"
+            className="block text-gray-800 hover:text-black transition-colors duration-200 text-sm tracking-[0.2em]"
           >
             {item.label}
           </Link>
         ))}
       </div>
       
-      <div className="absolute bottom-8 left-8 flex space-x-4">
+      <div className="absolute bottom-8 left-8 flex space-x-6">
         <a href="#" className="text-gray-800 hover:text-black transition-colors duration-200">
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" />
