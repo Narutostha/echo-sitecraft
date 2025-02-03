@@ -29,7 +29,7 @@ const Sidebar = () => {
         </Link>
       </div>
       
-      <div className="flex-1 mt-24">
+      <div className="flex-1" style={{ marginTop: '20vh', marginLeft: '5%' }}>
         <div className="space-y-8 pl-4">
           {menuItems.map((item) => (
             <Link
