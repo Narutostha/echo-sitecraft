@@ -29,14 +29,14 @@ const Sidebar = () => {
         </Link>
       </div>
       
-      <div className="flex-1 mt-32">
-        <div className="space-y-8">
+      <div className="flex-1 mt-24">
+        <div className="space-y-8 pl-4">
           {menuItems.map((item) => (
             <Link
               key={item.label}
               to={item.path}
               className="block text-[#FBF7F5] text-left no-underline uppercase text-base font-bold 
-                       leading-[1.475rem] tracking-[0.0094rem] cursor-pointer pl-8
+                       leading-[1.475rem] tracking-[0.0094rem] cursor-pointer pl-4
                        transition-colors duration-250 ease-in-out
                        hover:text-yellow-400"
             >
