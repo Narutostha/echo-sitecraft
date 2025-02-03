@@ -17,7 +17,7 @@ const Sidebar = () => {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-50"
+      className="fixed left-0 top-[40%] h-full w-64 bg-transparent backdrop-blur-sm p-8 z-50"
     >
       <Link to="/" className="block mb-16">
         <img
