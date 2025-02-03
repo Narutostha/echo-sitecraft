@@ -19,7 +19,7 @@ const Sidebar = () => {
       transition={{ duration: 0.5 }}
       className="fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-50 flex flex-col"
     >
-      <Link to="/" className="mb-16 mt-8">
+      <Link to="/" className="mb-8 mt-4">
         <img
           src="/lovable-uploads/24889cd0-3147-4b61-a0e3-e6256f595c0d.png"
           alt="Logo"
@@ -27,7 +27,7 @@ const Sidebar = () => {
         />
       </Link>
       
-      <div className="space-y-8 mt-32">
+      <div className="space-y-8 mt-16">
         {menuItems.map((item) => (
           <Link
             key={item.label}
