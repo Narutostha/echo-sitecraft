@@ -10,6 +10,7 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import SizeGuide from "./pages/SizeGuide";
+import ShippingPrices from "./pages/ShippingPrices";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/size-guide" element={<SizeGuide />} />
+            <Route path="/shipping-prices" element={<ShippingPrices />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
