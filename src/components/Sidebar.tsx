@@ -23,7 +23,7 @@ const Sidebar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 left-4 z-50 md:hidden"
       >
-        <Menu className="h-6 w-6 text-black" />
+        <Menu className="h-6 w-6 text-[#FBF7F5]" />
       </button>
 
       <motion.nav
@@ -33,7 +33,7 @@ const Sidebar = () => {
           opacity: 1
         }}
         transition={{ duration: 0.5 }}
-        className={`fixed left-0 top-0 h-full w-64 bg-white/90 p-8 z-40 flex flex-col shadow-lg
+        className={`fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col
                    ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
                    md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
@@ -49,16 +49,21 @@ const Sidebar = () => {
         
         <div className="flex-1">
           <div 
-            className="space-y-6 mt-12"
+            className="space-y-8"
+            style={{ 
+              marginTop: '30vh', 
+              marginLeft: '20%',
+              transform: 'translateX(0)'
+            }}
           >
             {menuItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.path}
-                className="block text-black text-left no-underline uppercase text-sm font-medium
+                className="block text-[#FBF7F5] text-left no-underline uppercase text-base font-bold 
                          leading-[1.475rem] tracking-[0.0094rem] cursor-pointer pl-4
                          transition-colors duration-250 ease-in-out
-                         hover:text-gray-600"
+                         hover:text-yellow-400"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
