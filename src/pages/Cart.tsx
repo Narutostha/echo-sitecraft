@@ -1,8 +1,29 @@
 
 import { motion } from "framer-motion";
 import Sidebar from "../components/Sidebar";
+import { useCart } from "../contexts/CartContext";
+import { Minus, Plus, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const { state, dispatch } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddItem = (itemId: string) => {
+    const item = state.items.find((i) => i.id === itemId);
+    if (item) {
+      dispatch({ type: "ADD_ITEM", payload: item });
+    }
+  };
+
+  const handleReduceItem = (itemId: string) => {
+    dispatch({ type: "REDUCE_QUANTITY", payload: itemId });
+  };
+
+  const handleRemoveItem = (itemId: string) => {
+    dispatch({ type: "REMOVE_ITEM", payload: itemId });
+  };
+
   return (
     <div className="min-h-screen bg-[#FCF7F5] relative">
       <Sidebar />
@@ -10,14 +31,86 @@ const Cart = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="flex flex-col items-center justify-center h-screen"
+        className="flex flex-col items-center justify-start pt-24 px-4 md:px-8 max-w-4xl mx-auto"
       >
         <h1 className="text-4xl font-['Halvar_Breit'] uppercase tracking-wider mb-8">
           CART
         </h1>
-        <p className="text-lg font-['Halvar_Breit'] uppercase tracking-wide text-gray-600">
-          YOUR CART IS EMPTY
-        </p>
+
+        {state.items.length === 0 ? (
+          <div className="text-center">
+            <p className="text-lg font-['Halvar_Breit'] uppercase tracking-wide text-gray-600 mb-6">
+              YOUR CART IS EMPTY
+            </p>
+            <button
+              onClick={() => navigate('/shop')}
+              className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors"
+            >
+              CONTINUE SHOPPING
+            </button>
+          </div>
+        ) : (
+          <div className="w-full">
+            {state.items.map((item) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center justify-between border-b border-gray-200 py-4"
+              >
+                <div className="flex items-center gap-4">
+                  {item.image && (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-20 h-20 object-cover rounded"
+                    />
+                  )}
+                  <div>
+                    <h3 className="font-['Halvar_Breit'] text-lg">{item.name}</h3>
+                    <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleReduceItem(item.id)}
+                      className="p-1 hover:bg-gray-100 rounded"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="w-8 text-center">{item.quantity}</span>
+                    <button
+                      onClick={() => handleAddItem(item.id)}
+                      className="p-1 hover:bg-gray-100 rounded"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => handleRemoveItem(item.id)}
+                    className="p-1 hover:bg-gray-100 rounded"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+
+            <div className="mt-8 flex flex-col items-end">
+              <p className="text-xl font-['Halvar_Breit'] mb-4">
+                Total: ${state.total.toFixed(2)}
+              </p>
+              <button
+                className="bg-black text-white px-8 py-3 rounded hover:bg-gray-800 transition-colors"
+                onClick={() => navigate('/checkout')}
+              >
+                CHECKOUT
+              </button>
+            </div>
+          </div>
+        )}
       </motion.div>
 
       {/* Social Icons */}

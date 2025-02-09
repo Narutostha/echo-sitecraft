@@ -1,9 +1,11 @@
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 const Cart = () => {
   const navigate = useNavigate();
+  const { state } = useCart();
 
   return (
     <motion.div
@@ -16,7 +18,7 @@ const Cart = () => {
         className="relative text-black hover:text-gray-600 transition-colors"
       >
         <span className="absolute -top-2 -right-2 bg-gray-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-          0
+          {state.items.reduce((total, item) => total + item.quantity, 0)}
         </span>
         CART
       </button>
