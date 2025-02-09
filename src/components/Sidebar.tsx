@@ -23,7 +23,7 @@ const Sidebar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 left-4 z-50 md:hidden"
       >
-        <Menu className="h-6 w-6 text-[#FBF7F5]" />
+        <Menu className="h-6 w-6 text-[#868686]" />
       </button>
 
       <motion.nav
@@ -33,7 +33,7 @@ const Sidebar = () => {
           opacity: 1
         }}
         transition={{ duration: 0.5 }}
-        className={`fixed left-0 top-0 h-full w-64 bg-transparent backdrop-blur-sm p-8 z-40 flex flex-col
+        className={`fixed left-0 top-0 h-full w-64 bg-transparent p-8 z-40 flex flex-col
                    ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
                    md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
@@ -60,7 +60,7 @@ const Sidebar = () => {
               <Link
                 key={item.label}
                 to={item.path}
-                className="block text-[#FBF7F5] text-left no-underline uppercase text-base font-bold 
+                className="block text-[#868686] text-left no-underline uppercase text-base font-bold 
                          leading-[1.475rem] tracking-[0.0094rem] cursor-pointer pl-4
                          transition-colors duration-250 ease-in-out
                          hover:text-yellow-400"
