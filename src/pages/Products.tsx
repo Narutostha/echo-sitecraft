@@ -4,6 +4,8 @@ import { useCart } from "../contexts/CartContext";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import Sidebar from "../components/Sidebar";
+import Cart from "../components/Cart";
 
 interface Product {
   id: string;
@@ -62,12 +64,14 @@ const Shop = () => {
   };
 
   return (
-    <div className="min-h-screen bg-shop p-8">
+    <div className="min-h-screen bg-shop">
+      <Sidebar />
+      <Cart />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto p-8"
       >
         <h1 className="text-4xl font-light mb-12 text-[#868686]">Our Collection</h1>
         
