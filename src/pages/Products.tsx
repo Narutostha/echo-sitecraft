@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import Sidebar from "../components/Sidebar";
 import Cart from "../components/Cart";
+import { Link } from "react-router-dom";
 
 interface Product {
   id: string;
@@ -84,13 +85,15 @@ const Shop = () => {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center"
             >
-              <div className="w-full aspect-square mb-4 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+              <Link to={`/products/${product.id}`} className="w-full">
+                <div className="w-full aspect-square mb-4 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </Link>
               
               <h3 className="text-lg font-medium text-[#868686] mb-2">{product.name}</h3>
               <p className="text-[#868686] mb-4">£{product.price.toFixed(2)}</p>
