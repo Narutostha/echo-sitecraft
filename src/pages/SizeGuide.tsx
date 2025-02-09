@@ -14,6 +14,19 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+type Size = "XXS" | "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
+type Measurement = {
+  name: string;
+  unit: string;
+  sizes: Record<Size, number | "-">;
+};
+
+type ClothingType = {
+  name: string;
+  image: string;
+  measurements: Measurement[];
+};
+
 const SizeGuide = () => {
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
 
@@ -23,7 +36,7 @@ const SizeGuide = () => {
     return inches;
   };
 
-  const clothingTypes = [
+  const clothingTypes: ClothingType[] = [
     {
       name: "HOODIE",
       image: "/lovable-uploads/f28aa2dd-8b13-4a67-93fa-878e5fc802e4.png",
@@ -121,14 +134,11 @@ const SizeGuide = () => {
                     <TableHeader>
                       <TableRow>
                         <TableHead className="text-[#868686]">SIZES</TableHead>
-                        <TableHead className="text-[#868686]">XXS</TableHead>
-                        <TableHead className="text-[#868686]">XS</TableHead>
-                        <TableHead className="text-[#868686]">S</TableHead>
-                        <TableHead className="text-[#868686]">M</TableHead>
-                        <TableHead className="text-[#868686]">L</TableHead>
-                        <TableHead className="text-[#868686]">XL</TableHead>
-                        <TableHead className="text-[#868686]">XXL</TableHead>
-                        <TableHead className="text-[#868686]">XXXL</TableHead>
+                        {(Object.keys(type.measurements[0].sizes) as Size[]).map((size) => (
+                          <TableHead key={size} className="text-[#868686]">
+                            {size}
+                          </TableHead>
+                        ))}
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -137,9 +147,11 @@ const SizeGuide = () => {
                           <TableCell className="font-medium text-[#868686]">
                             {measurement.name} ({unit === "metric" ? "CM" : "IN"})
                           </TableCell>
-                          {Object.values(measurement.sizes).map((value, index) => (
-                            <TableCell key={index} className="text-[#868686]">
-                              {unit === "metric" ? value : convertToImperial(value)}
+                          {(Object.keys(measurement.sizes) as Size[]).map((size) => (
+                            <TableCell key={size} className="text-[#868686]">
+                              {unit === "metric" 
+                                ? measurement.sizes[size]
+                                : convertToImperial(measurement.sizes[size])}
                             </TableCell>
                           ))}
                         </TableRow>
