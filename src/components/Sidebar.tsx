@@ -7,6 +7,7 @@ import { useState } from "react";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuItems = [
+    { label: "SHOP", path: "/shop" },
     { label: "PRODUCTS", path: "/products" },
     { label: "SIGN UP", path: "/signup" },
     { label: "SIZE GUIDE", path: "/size-guide" },
